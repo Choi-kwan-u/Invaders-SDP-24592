@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 import screen.Screen;
+import hud.FloatingScoreHud;
 import entity.Entity;
 import entity.Ship;
 
@@ -251,6 +252,12 @@ public final class DrawManager {
 	 * @param lives
 	 *            Current lives.
 	 */
+	/** Draws point notifications without changing the existing score HUD. */
+	public void drawFloatingScores(final FloatingScoreHud hud, final Screen screen) {
+		hud.draw((java.awt.Graphics2D) backBufferGraphics,
+				screen.getWidth(), screen.getHeight());
+	}
+
 	public void drawLives(final Screen screen, final int lives) {
 		Ship dummyShip = new Ship(0, 0);
 		for (int i = 0; i < lives; i++)
